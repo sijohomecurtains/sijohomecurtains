@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <base target="_self">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sijo Home Curtains | Luxury Precision Delivered</title>
+    <meta name="description" content="Premium bespoke curtains and drapes. Luxury interior design studio specializing in timeless curtain elegance and craftsmanship.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        :root {
+            --primary-beige: #EDDDBB;
+            --accent-green: #0E413A;
+            --transition-smooth: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1);
+            --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.08);
+            --shadow-hover: 0 15px 40px rgba(14, 65, 58, 0.12);
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            color: #333;
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4, h5 {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 600;
+            line-height: 1.2;
+        }
+        
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .slide-in-left {
+            opacity: 0;
+            transform: translateX(-40px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        
+        .slide-in-left.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
+        .slide-in-right {
+            opacity: 0;
+            transform: translateX(40px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        
+        .slide-in-right.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
+        .zoom-on-hover {
+            transition: var(--transition-smooth);
+        }
+        
+        .zoom-on-hover:hover {
+            transform: scale(1.05);
+            box-shadow: var(--shadow-hover);
+        }
+        
+        .header-scrolled {
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+        }
+        
+        .btn-primary {
+            background-color: var(--accent-green);
+            color: white;
+            padding: 14px 32px;
+            border-radius: 0;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            transition: var(--transition-smooth);
+            border: 2px solid var(--accent-green);
+        }
+        
+        .btn-primary:hover {
+            background-color: transparent;
+            color: var(--accent-green);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-hover);
+        }
+        
+        .btn-outline {
+            background-color: transparent;
+            color: var(--accent-green);
+            padding: 14px 32px;
+            border-radius: 0;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            transition: var(--transition-smooth);
+            border: 2px solid var(--accent-green);
+        }
+        
+        .btn-outline:hover {
+            background-color: var(--accent-green);
+            color: white;
+            transform: translateY(-3px);
+        }
+        
+        .section-spacing {
+            padding-top: 6rem;
+            padding-bottom: 6rem;
+        }
+        
+        @media (max-width: 768px) {
+            .section-spacing {
+                padding-top: 4rem;
+                padding-bottom: 4rem;
+            }
+        }
+        
+        .hero-height {
+            min-height: 90vh;
+        }
+        
+        @media (max-width: 768px) {
+            .hero-height {
+                min-height: 70vh;
+            }
+        }
+        
+        .gallery-item {
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .gallery-item img {
+            transition: var(--transition-smooth);
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+        
+        .brand-card {
+            transition: var(--transition-smooth);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            background-color: white;
+        }
+        
+        .brand-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-hover);
+        }
+    </style>
+</head>
+<body class="bg-white">
+    <!-- Header / Navigation -->
+    <header id="main-header" class="fixed w-full z-50 py-4 transition-all duration-500">
+        <div class="container mx-auto px-6">
+            <div class="flex justify-between items-center">
+                <!-- Logo -->
+                <div class="logo-container">
+                    <a href="#home" class="text-2xl font-bold tracking-wider" style="color: var(--accent-green);">
+                        <span class="font-cormorant" style="font-family: 'Cormorant Garamond', serif;">SIJO</span>
+                        <span class="text-sm font-normal tracking-widest ml-2">HOME CURTAINS</span>
+                    </a>
+                </div>
+                
+                <!-- Navigation -->
+                <nav class="hidden md:block">
+                    <ul id="nav-menu" class="flex space-x-10"></ul>
+                </nav>
+                
+                <!-- Mobile menu button -->
+                <button id="mobile-menu-btn" class="md:hidden text-2xl" style="color: var(--accent-green);">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="md:hidden bg-white shadow-lg absolute w-full left-0 top-full transform -translate-y-2 opacity-0 pointer-events-none transition-all duration-300">
+            <ul id="mobile-nav-menu" class="py-4"></ul>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="hero-height flex items-center" style="background-color: var(--primary-beige);">
+            <div class="container mx-auto px-6">
+                <div class="max-w-2xl fade-in">
+                    <h1 class="text-3xl md:text-4xl lg:text-5xl mt-10 mb-6" style="color: var(--accent-green);">
+                        Luxury Precision Delivered. <br>
+                        300 Plus Projects
+                    </h1>
+                    <p class="text-lg md:text-xl mb-10 text-gray-700 max-w-xl">
+                        For over three decades, Sijo Home Curtains has been the trusted choice for discerning homeowners and interior designers seeking bespoke window treatments of unparalleled quality and sophistication.
+                    </p>
+                    <div class="flex flex-wrap gap-4">
+                        <a href="#gallery" class="btn-primary inline-block">View Our Gallery</a>
+                        <a href="#contact" class="btn-outline inline-block">Book a Consultation</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="section-spacing">
+            <div class="container mx-auto px-6">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                    <div class="slide-in-left">
+                        <img src="shop.img.jpeg" alt="Craftsman measuring fabric for bespoke curtains" class="w-full h-auto shadow-lg">
+                    </div>
+                    <div class="slide-in-right">
+                        <span class="text-sm uppercase tracking-widest mb-4 block" style="color: var(--accent-green);">Our Story</span>
+                        <h2 class="text-4xl md:text-5xl mb-6" style="color: var(--accent-green);">
+                            Bespoke Excellence Since 1990
+                        </h2>
+                        <p class="mb-6 text-gray-700">
+                           At Sijo Home Curtains, we bring over 30 years of trusted craftsmanship to every space we touch. With 300+ beautifully completed projects, our name is built on quality, heartfelt service, and lasting relationships.
+We believe true elegance lies in the details—combining experience, passion, and precision to create window treatments that not only enhance a room, but make it feel like home.
+                        </p>
+                        <div class="mb-8">
+                            <div class="flex items-start mb-4">
+                                <div class="mr-4 mt-1" style="color: var(--accent-green);">
+                                    <i class="fas fa-ruler-combined text-xl"></i>
+                                </div>
+                                <div>
+                                    <h3 class="text-xl font-medium mb-2" style="color: var(--accent-green);">Precision Measurements</h3>
+                                    <p class="text-gray-600">Every window is meticulously measured to ensure a perfect fit, accounting for light, space, and architectural details.</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start mb-4">
+                                <div class="mr-4 mt-1" style="color: var(--accent-green);">
+                                    <i class="fas fa-palette text-xl"></i>
+                                </div>
+                                <div>
+                                    <h3 class="text-xl font-medium mb-2" style="color: var(--accent-green);">Custom Design</h3>
+                                    <p class="text-gray-600">We work closely with you to create a design that reflects your personal style and complements your interior aesthetic.</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="mr-4 mt-1" style="color: var(--accent-green);">
+                                    <i class="fas fa-award text-xl"></i>
+                                </div>
+                                <div>
+                                    <h3 class="text-xl font-medium mb-2" style="color: var(--accent-green);">Premium Materials</h3>
+                                    <p class="text-gray-600">We source only the finest fabrics from across India, ensuring lasting durability, rich texture, and timeless beauty.
+</p>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="#contact" class="btn-outline inline-block">Learn More About Us</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gallery Section -->
+        <section id="gallery" class="py-12" style="background-color: rgba(237, 221, 187, 0.2);">
+            <div class="container mx-auto px-6 section-spacing">
+                <div class="text-center mb-16 fade-in">
+                    <span class="text-sm uppercase tracking-widest mb-4 block" style="color: var(--accent-green);">Portfolio</span>
+                    <h2 class="text-4xl md:text-5xl mb-6" style="color: var(--accent-green);">Our Finished Projects</h2>
+                    <p class="max-w-2xl mx-auto text-gray-700">
+                        Explore our gallery of completed installations showcasing the transformative power of bespoke curtain design in various interior styles.
+                    </p>
+                </div>
+                
+                <div id="gallery-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"></div>
+            </div>
+        </section>
+
+        <!-- Brands Section -->
+        <section id="brands" class="section-spacing">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16 fade-in">
+                    <span class="text-sm uppercase tracking-widest mb-4 block" style="color: var(--accent-green);">Partnerships</span>
+                    <h2 class="text-4xl md:text-5xl mb-6" style="color: var(--accent-green);">Premium Brands We Work With</h2>
+                    <p class="max-w-2xl mx-auto text-gray-700">
+                        We partner with the India's most respected fabric houses and hardware manufacturers to bring you unparalleled quality and design options.
+                    </p>
+                </div>
+                
+                <div id="brands-grid" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6"></div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-12" style="background-color: var(--primary-beige);">
+            <div class="container mx-auto px-6 section-spacing">
+                <div class="max-w-4xl mx-auto">
+                    <div class="text-center mb-16 fade-in">
+                        <span class="text-sm uppercase tracking-widest mb-4 block" style="color: var(--accent-green);">Get in Touch</span>
+                        <h2 class="text-4xl md:text-5xl mb-6" style="color: var(--accent-green);">Begin Your Design Journey</h2>
+                        <p class="max-w-xl mx-auto text-gray-700">
+                            Schedule a complimentary consultation with our design team to discuss your vision and explore possibilities for your space.
+                        </p>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+                        <div class="slide-in-left">
+                            <h3 class="text-2xl mb-8" style="color: var(--accent-green);">Contact Information</h3>
+                            
+                            <div class="mb-10">
+                                <div class="flex items-start mb-6">
+                                    <div class="mr-4 mt-1" style="color: var(--accent-green);">
+                                        <i class="fas fa-map-marker-alt text-xl"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="text-lg font-medium mb-2" style="color: var(--accent-green);">Showroom Address</h4>
+                                        <p class="text-gray-700">PP Road, Allapra PO<br>Perumbavoor, Ernakulam, Kerala</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-start mb-6">
+                                    <div class="mr-4 mt-1" style="color: var(--accent-green);">
+                                        <i class="fas fa-phone text-xl"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="text-lg font-medium mb-2" style="color: var(--accent-green);">Phone</h4>
+                                        <p class="text-gray-700">+91 9847949507</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-start mb-10">
+                                    <div class="mr-4 mt-1" style="color: var(--accent-green);">
+                                        <i class="fas fa-envelope text-xl"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="text-lg font-medium mb-2" style="color: var(--accent-green);">Email</h4>
+                                        <p class="text-gray-700">sijohomecurtains@gmail.com</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <h4 class="text-xl font-medium mb-6" style="color: var(--accent-green);">Connect via WhatsApp</h4>
+                                <a href="https://wa.me/919847949507" target="_blank" class="btn-primary inline-flex items-center">
+                                    <i class="fab fa-whatsapp mr-3 text-xl"></i>
+                                    <span>Chat on WhatsApp</span>
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <div class="slide-in-right">
+                            <h3 class="text-2xl mb-8" style="color: var(--accent-green);">Schedule a Consultation</h3>
+                            <form id="contact-form" class="space-y-6">
+                                <div>
+                                    <label for="name" class="block mb-2 text-gray-700">Full Name</label>
+                                    <input type="text" id="name" name="name" required class="w-full px-4 py-3 border border-gray-300 focus:outline-none focus:border-green-800 transition-colors" placeholder="Enter your name">
+                                </div>
+                                
+                                <div>
+                                    <label for="email" class="block mb-2 text-gray-700">Email Address</label>
+                                    <input type="email" id="email" name="email" required class="w-full px-4 py-3 border border-gray-300 focus:outline-none focus:border-green-800 transition-colors" placeholder="Enter your email">
+                                </div>
+                                
+                                <div>
+                                    <label for="phone" class="block mb-2 text-gray-700">Phone Number</label>
+                                    <input type="tel" id="phone" name="phone" class="w-full px-4 py-3 border border-gray-300 focus:outline-none focus:border-green-800 transition-colors" placeholder="Enter your phone number">
+                                </div>
+                                
+                                <div>
+                                    <label for="message" class="block mb-2 text-gray-700">Project Details</label>
+                                    <textarea id="message" name="message" rows="4" class="w-full px-4 py-3 border border-gray-300 focus:outline-none focus:border-green-800 transition-colors" placeholder="Tell us about your project, room dimensions, and design preferences"></textarea>
+                                </div>
+                                
+                                <button type="submit" class="btn-primary w-full">
+                                    Request Consultation
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="py-12" style="background-color: var(--accent-green); color: white;">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-8 md:mb-0">
+                    <div class="text-2xl font-bold tracking-wider mb-4">
+                        <span style="font-family: 'Cormorant Garamond', serif;">SIJO</span>
+                        <span class="text-sm font-normal tracking-widest ml-2">HOME CURTAINS</span>
+                    </div>
+                    <p class="text-gray-300 max-w-md">
+                        Crafting bespoke window treatments of unparalleled quality and elegance since 1990.
+                    </p>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-medium mb-6 text-center md:text-left">Connect With Us</h4>
+                    <div id="social-links" class="flex space-x-6"></div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 mt-12 pt-8 text-center text-gray-400 text-sm">
+                <p>&copy; <span id="current-year"></span> Sijo Home Curtains. All rights reserved. | <a href="#" class="hover:text-white transition-colors">Privacy Policy</a> | <a href="#" class="hover:text-white transition-colors">Terms of Service</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Data layer - all content in structured arrays/objects
+        const navigationData = [
+            { "id": "home", "label": "Home", "href": "#home" },
+            { "id": "about", "label": "About", "href": "#about" },
+            { "id": "gallery", "label": "Gallery", "href": "#gallery" },
+            { "id": "brands", "label": "Brands", "href": "#brands" },
+            { "id": "contact", "label": "Contact", "href": "#contact" }
+        ];
+        
+        const galleryData = [
+            { 
+                "id": 1, 
+                "title": "Modern Royal Look", 
+                "description": "Cieling to floor - Living Room Luxury",
+                "image": "living.jpeg",
+                "alt": "Luxury ceiling-to-floor curtains and roman curtains styled in an elegant living space "
+            },
+            { 
+                "id": 2, 
+                "title": "Fragrance in Bedroom", 
+                "description": "Embroidered floral curtains - Soft Bedroom",
+                "image": "img7.jpeg",
+                "alt": "Modern sheer curtain panels in a minimalist bedroom"
+            },
+            { 
+                "id": 3, 
+                "title": "Pattern with Style", 
+                "description": "Artistic Modern Elegant",
+                "image": "img6.jpeg",
+                "alt": "Traditional velvet curtains in a formal dining room"
+            },
+            { 
+                "id": 4, 
+                "title": "Peace and the Sheer", 
+                "description": "Light Calm Soft",
+                "image": "sheer.jpeg",
+                "alt": "Light linen drapes in a bright family room"
+            },
+            { 
+                "id": 5, 
+                "title": "Like a Painting", 
+                "description": "Warm Floral Folded",
+                "image": "yellow.jpeg",
+                "alt": "Blackout curtains in a sophisticated bedroom"
+            },
+            { 
+                "id": 6, 
+                "title": "Kitchen Flavours", 
+                "description": "Simple and Protected",
+                "image": "img5.jpeg",
+                "alt": "Custom curtains for a curved bay window in a library"
+            }
+        ];
+        
+        const brandsData = [
+            { "id": 1, "name": "Live Beautiful", "logo": "DDECOR" },
+            { "id": 2, "name": "Live Conciosly", "logo": "SANSAAR" },
+            { "id": 3, "name": "Luxury Home Decor", "logo": "GM" },
+            { "id": 4, "name": "Furnished by Asianpaints", "logo": "ADORE" },
+            { "id": 5, "name": "Fabrics", "logo": "KC" },
+            { "id": 6, "name": "Furnishing", "logo": "DC" }
+        ];
+        
+        const socialData = [
+            { "id": "facebook", "icon": "fab fa-facebook-f", "href": "#", "label": "Facebook" },
+            { "id": "instagram", "icon": "fab fa-instagram", "href": "#", "label": "Instagram" },
+            { "id": "pinterest", "icon": "fab fa-pinterest-p", "href": "#", "label": "Pinterest" },
+            { "id": "houzz", "icon": "fab fa-houzz", "href": "#", "label": "Houzz" }
+        ];
+
+        // Reusable render functions
+        function renderNavigation(items) {
+            return items.map(item => 
+                `<li><a href="${item.href}" class="text-gray-700 hover:text-green-900 transition-colors font-medium tracking-wide" data-nav="${item.id}">${item.label}</a></li>`
+            ).join('');
+        }
+        
+        function renderGallery(items) {
+            return items.map(item => 
+                `<div class="gallery-item fade-in bg-white rounded-lg overflow-hidden shadow-md">
+                    <div class="relative overflow-hidden h-64 md:h-80">
+                        <img src="${item.image}" alt="${item.alt}" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-medium mb-2" style="color: var(--accent-green);">${item.title}</h3>
+                        <p class="text-gray-600">${item.description}</p>
+                    </div>
+                </div>`
+            ).join('');
+        }
+        
+        function renderBrands(items) {
+            return items.map(item => 
+                `<div class="brand-card rounded-lg shadow-sm fade-in">
+                    <div class="text-center">
+                        <div class="text-3xl font-bold mb-2" style="color: var(--accent-green);">${item.logo}</div>
+                        <div class="text-gray-700 font-medium">${item.name}</div>
+                    </div>
+                </div>`
+            ).join('');
+        }
+        
+        function renderSocialLinks(items) {
+            return items.map(item => 
+                `<a href="${item.href}" aria-label="${item.label}" class="text-white hover:text-beige-200 text-xl transition-colors">
+                    <i class="${item.icon}"></i>
+                </a>`
+            ).join('');
+        }
+
+        // Initialize page elements
+        document.addEventListener('DOMContentLoaded', function() {
+            // Set current year in footer
+            document.getElementById('current-year').textContent = new Date().getFullYear();
+            
+            // Render navigation
+            document.getElementById('nav-menu').innerHTML = renderNavigation(navigationData);
+            document.getElementById('mobile-nav-menu').innerHTML = renderNavigation(navigationData);
+            
+            // Render gallery
+            document.getElementById('gallery-grid').innerHTML = renderGallery(galleryData);
+            
+            // Render brands
+            document.getElementById('brands-grid').innerHTML = renderBrands(brandsData);
+            
+            // Render social links
+            document.getElementById('social-links').innerHTML = renderSocialLinks(socialData);
+            
+            // Initialize scroll animations
+            initScrollAnimations();
+            
+            // Initialize mobile menu
+            initMobileMenu();
+            
+            // Initialize scroll behavior for header
+            initHeaderScroll();
+            
+            // Initialize smooth scrolling for navigation links
+            initSmoothScrolling();
+            
+            // Initialize form submission
+            initContactForm();
+        });
+
+        // Animation functions
+        function initScrollAnimations() {
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+            
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, observerOptions);
+            
+            // Observe all elements with animation classes
+            document.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right').forEach(el => {
+                observer.observe(el);
+            });
+        }
+        
+        function initHeaderScroll() {
+            const header = document.getElementById('main-header');
+            
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 50) {
+                    header.classList.add('header-scrolled');
+                } else {
+                    header.classList.remove('header-scrolled');
+                }
+            });
+        }
+        
+        function initMobileMenu() {
+            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            
+            mobileMenuBtn.addEventListener('click', function() {
+                const isExpanded = mobileMenu.classList.contains('opacity-100');
+                
+                if (isExpanded) {
+                    // Close menu
+                    mobileMenu.classList.remove('opacity-100', 'translate-y-0', 'pointer-events-auto');
+                    mobileMenu.classList.add('opacity-0', '-translate-y-2', 'pointer-events-none');
+                    mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+                } else {
+                    // Open menu
+                    mobileMenu.classList.remove('opacity-0', '-translate-y-2', 'pointer-events-none');
+                    mobileMenu.classList.add('opacity-100', 'translate-y-0', 'pointer-events-auto');
+                    mobileMenuBtn.innerHTML = '<i class="fas fa-times"></i>';
+                }
+            });
+            
+            // Close menu when clicking a link
+            document.querySelectorAll('#mobile-nav-menu a').forEach(link => {
+                link.addEventListener('click', function() {
+                    mobileMenu.classList.remove('opacity-100', 'translate-y-0', 'pointer-events-auto');
+                    mobileMenu.classList.add('opacity-0', '-translate-y-2', 'pointer-events-none');
+                    mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+                });
+            });
+        }
+        
+        function initSmoothScrolling() {
+            document.addEventListener('click', function(event) {
+                // Handle all navigation links
+                if (event.target.matches('a[href^="#"]') || event.target.closest('a[href^="#"]')) {
+                    const link = event.target.matches('a[href^="#"]') ? event.target : event.target.closest('a[href^="#"]');
+                    const targetId = link.getAttribute('href');
+                    
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    
+                    if (targetElement) {
+                        event.preventDefault();
+                        
+                        // Calculate header height for offset
+                        const headerHeight = document.getElementById('main-header').offsetHeight;
+                        const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+                        
+                        window.scrollTo({
+                            top: targetPosition,
+                            behavior: 'smooth'
+                        });
+                    }
+                }
+            });
+        }
+        
+        function initContactForm() {
+            const contactForm = document.getElementById('contact-form');
+            
+            if (contactForm) {
+                contactForm.addEventListener('submit', function(event) {
+                    event.preventDefault();
+                    
+                    // Get form data
+                    const formData = new FormData(contactForm);
+                    const data = Object.fromEntries(formData);
+                    
+                    // In a real implementation, you would send this data to a server
+                    // For this example, we'll just show a success message
+                    
+                    // Reset form
+                    contactForm.reset();
+                    
+                    // Show success message
+                    alert('Thank you for your consultation request! We will contact you within 24 hours to schedule your appointment.');
+                });
+            }
+        }
+    </script>
+</body>
+</html>
